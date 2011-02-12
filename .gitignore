@@ -1,0 +1,11 @@
+build/
+sdl.*
+*bak.*
+*.swp
+.DS_Store
+*.zip
+*.o
+a.out
+*.exe
+blbasic
+blbasic_e

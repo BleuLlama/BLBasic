@@ -552,11 +552,11 @@ void restore_actual( basic_program * bp, long line )
 }
 
 
-/* run_actual
+/* runProgram
  *
  *	start running a program on the specified line (or the next one)
  */
-void run_actual( basic_program * bp, long startline )
+void runProgram( basic_program * bp, long startline )
 {
 	basic_line * r;
 
@@ -676,7 +676,7 @@ void cmd_load( basic_program * bp, basic_line * bl )
 		cmd_infosteps( bp, NULL );
 
 		if( autorun ) {
-			run_actual( bp, 0 );
+			runProgram( bp, 0 );
 		}
 		
 	}
@@ -1161,7 +1161,7 @@ void cmd_run( basic_program * bp, basic_line * bl )
 	}
 
 	/* startLine contains the lowest line number to start on */
-	run_actual( bp, startLine );
+	runProgram( bp, startLine );
 }
 
 

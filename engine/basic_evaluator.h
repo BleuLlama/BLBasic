@@ -76,6 +76,9 @@ char * findTokenStringFromID( int token );
 void evaluateLine( basic_program * bp, basic_line * bl );
 int run_poll( basic_program * bp );
 
+void runProgram( basic_program * bp, long startline );
+void stopProgram( basic_program * bp );
+
 
 /* ********************************************************************** */ 
 
