@@ -339,12 +339,13 @@ RESTORE x
 
 2) Arrays are not implemented yet.
 
-3) RENUM command is faulty.
+3) RENUM command is faulty. (currently disabled)
 
 ----------------------------------------
                                   Errors
 
 INCOMPLETE, INCORRECT
+THESE NEED TO BE REVISITED.
 
 	100 	LOAD couldn't open file for reading
 	101	LOAD parameters are invalid
@@ -367,6 +368,17 @@ INCOMPLETE, INCORRECT
 
 	116	RETURN invalid number of parameters
 	117	RETURN no return value in stack to go to
+
+
+----------------------------------------
+                               Platforms
+
+Tested platforms:
+
+	OS X 10.6.6, GCC 4.2.1 (Mac)
+	MinGW/MSYS (Windows)
+
+
 
 ----------------------------------------
                                  License
