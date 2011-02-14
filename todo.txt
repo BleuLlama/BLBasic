@@ -1,19 +1,30 @@
-error testing is messy
+error testing is messy 
 
-ON - check for adjusting line numbers.  this could get messy.
+Organization of tokens is messy and arbitrary
 
-continuations need line number adjustment as well.
+Synonyms: 	REM	'
+		PRINT	?
+		BYE	QUIT, EXIT
 
-RENUM might have to work backwards.  this could get messy.
-
-Perhaps basic_line needs a flag of what this line number used
-to be, then do a second pass over the full list to adjust all of the numbers
-
+REM should go to end of line OR to ':' 
 
 
+Evaluation notes:
+	Figure out how to mark evaluation lists for shunting
 
-Conditionals
+	Evaluate RPN (output from shunting)
+
+
+RENUM issues:
+
+	ON - check for adjusting line numbers.  this could get messy.
+
+	continuations need line number adjustment as well.
+
+	RENUM might have to work backwards.  this could get messy.
+
+	Perhaps basic_line needs a flag of what this line number used
+	to be, then do a second pass over the full list to adjust all of the numbers
+
 
 goto out of FOR!
-
-: Multistatement
