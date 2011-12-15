@@ -3,7 +3,7 @@
 #  2011-01 Scott Lawrence
 #
 
-CC = GCC
+CC ?= gcc
 
 CFLAGS += -Wall -pedantic -g -ggdb -I engine
 
