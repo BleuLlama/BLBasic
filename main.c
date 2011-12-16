@@ -6,8 +6,6 @@
 
 /* TODO:
 	REM command needs to store to end of line
-	after immediate evaluate() here, we need to dispose of the tree.
-	    deleteLines( bl ); ?
 */
 
 /* LICENSE:
@@ -143,6 +141,7 @@ int main( int argc, char ** argv )
 					bl = bl->continuation;
 					evaluateLine( bp, bl );
 				}
+				deleteLines( bl );
 			} else {
 				/* let's print out the line */
 				/* and reuse lnbuf */
@@ -150,10 +149,6 @@ int main( int argc, char ** argv )
 					stringizeLine( bl, lnbuf, 1024 );
 					printf( "%s\n", lnbuf );
 				}
-
-				/* HACK. We should do this:
-				deleteLines( bl );
-				*/
 			}
 		}
 
