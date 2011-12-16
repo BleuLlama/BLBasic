@@ -134,21 +134,27 @@ int main( int argc, char ** argv )
 		bl = consumeString( bp, lnbuf );
 
 		/* if it was not absorbed, it has a negative line number */
-		if( bl && bl->lineNumber == kNoLineNumber ) {
-			/* so immediately evaluate it. */
-			evaluateLine( bp, bl );
+		if( bl ) {
+			if( bl->lineNumber == kNoLineNumber ) {
+				/* so immediately evaluate it. */
+				evaluateLine( bp, bl );
+				/* and any continuations it might have. */
+				while( bl->continuation ) {
+					bl = bl->continuation;
+					evaluateLine( bp, bl );
+				}
+			} else {
+				/* let's print out the line */
+				/* and reuse lnbuf */
+				if( bp->traceOn ) {
+					stringizeLine( bl, lnbuf, 1024 );
+					printf( "%s\n", lnbuf );
+				}
 
-		} else {
-			/* let's print out the line */
-			/* and reuse lnbuf */
-			if( bp->traceOn ) {
-				stringizeLine( bl, lnbuf, 1024 );
-				printf( "%s\n", lnbuf );
+				/* HACK. We should do this:
+				deleteLines( bl );
+				*/
 			}
-
-			/* HACK. We should do this:
- 			deleteLines( bl );
-			*/
 		}
 
 		/* reset our break counter */
